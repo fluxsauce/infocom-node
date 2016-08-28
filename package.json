@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "Infocom Game Information Server",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "csv-parse": "^1.1.7",
+    "debug": "^2.2.0",
+    "restify": "^4.1.1"
+  },
   "devDependencies": {
     "eslint": "^3.4.0",
     "eslint-plugin-node": "^2.0.0"
@@ -26,5 +30,8 @@
   "bugs": {
     "url": "https://github.com/fluxsauce/infocom-node/issues"
   },
-  "homepage": "https://github.com/fluxsauce/infocom-node#readme"
+  "homepage": "https://github.com/fluxsauce/infocom-node#readme",
+  "engines": {
+    "node": ">=4.5.0"
+  }
 }

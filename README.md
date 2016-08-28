@@ -3,6 +3,11 @@
 A simple [Node.js](https://nodejs.org/) server that provides information about
 Infocom games released between 1980 and 1989.
 
+## Usage
+
+* http://localhost:8080/game/Planetfall - will return metadata about Planetfall.
+* http://localhost:8080/game/fail - will return an error.
+
 ## Installation
 
 Install [Node Version Manager](https://github.com/creationix/nvm) if it isn't
@@ -22,6 +27,12 @@ npm install
 
 ## Development
 
+To run the server in debugging mode:
+
+```bash
+DEBUG=* node index
+```
+
 ### Linting
 
 The IGIS uses [ESLint](http://eslint.org/) and [eslint-plugin-node](https://www.npmjs.com/package/eslint-plugin-node)
@@ -30,3 +41,11 @@ for linting the JavaScript in the project.
 ```bash
 npm run eslint
 ```
+
+## Data
+
+Game metadata was scraped from [infocom-if.org](http://www.infocom-if.org/)
+using [import.io](https://www.import.io/). All games, game titles and cover
+artworks, mentioned and shown, parts of game descriptions and photographs and
+the Infocom logo are &copy; and &trade; by Infocom, Inc. and subsequently &copy;
+and &trade; by Activision, Inc.
