@@ -22,7 +22,7 @@
     "fiction"
   ],
   "author": "Jon Peck <jpeck@fluxsauce.com>",
-  "license": "MIT",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/fluxsauce/infocom-node/issues"
   },
