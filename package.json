@@ -1,0 +1,30 @@
+{
+  "name": "infocom-node",
+  "version": "1.0.0",
+  "description": "Infocom Game Information Server",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^3.4.0",
+    "eslint-plugin-node": "^2.0.0"
+  },
+  "scripts": {
+    "eslint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fluxsauce/infocom-node.git"
+  },
+  "keywords": [
+    "infocom",
+    "interactive",
+    "fiction"
+  ],
+  "author": "Jon Peck <jpeck@fluxsauce.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fluxsauce/infocom-node/issues"
+  },
+  "homepage": "https://github.com/fluxsauce/infocom-node#readme"
+}
