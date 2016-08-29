@@ -27,10 +27,10 @@ function startServer() {
   const server = restify.createServer({
     name: 'Infocom'
   });
-  server.get('/games', games.respondGames);
-  server.get('/games/:id', games.respondGameById);
-  server.get('/genres', genres.respondGenres);
-  server.get('/genres/:id', genres.respondGenreById);
+  server.get('/games', (req, res, next) => games.respondGames(req, res, next));
+  server.get('/games/:id', (req, res, next) => games.respondGameById(req, res, next));
+  server.get('/genres', (req, res, next) => genres.respondGenres(req, res, next));
+  server.get('/genres/:id', (req, res, next) => genres.respondGenreById(req, res, next));
 
   server.listen(8080, () => debug('%s listening at %s', server.name, server.url));
 }
