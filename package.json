@@ -11,10 +11,10 @@
   "devDependencies": {
     "eslint": "^3.4.0",
     "eslint-config-airbnb-base": "^5.0.3",
-    "eslint-plugin-import": "^1.14.0",
-    "eslint-plugin-node": "^2.0.0"
+    "eslint-plugin-import": "^1.14.0"
   },
   "scripts": {
+    "start": "node .",
     "eslint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
