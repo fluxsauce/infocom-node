@@ -9,11 +9,7 @@ const Genres = require('./lib/genres');
 const Difficulties = require('./lib/difficulties');
 const Games = require('./lib/games');
 
-let difficulties;
-let genres;
-let games;
-
-function startServer() {
+function startServer(genres, difficulties, games) {
   const server = restify.createServer({
     name: 'Infocom',
   });
@@ -37,9 +33,9 @@ fs.readFile(`${__dirname}/assets/games.csv`, 'utf8', (err, data) => {
     columns: true,
   });
 
-  genres = new Genres(gamesRaw);
-  difficulties = new Difficulties(gamesRaw);
-  games = new Games(gamesRaw, genres, difficulties);
+  const genres = new Genres(gamesRaw);
+  const difficulties = new Difficulties(gamesRaw);
+  const games = new Games(gamesRaw, genres, difficulties);
 
-  startServer();
+  startServer(genres, difficulties, games);
 });
