@@ -15,7 +15,6 @@
     "eslint-plugin-import": "^1.14.0"
   },
   "scripts": {
-    "start": "node .",
     "eslint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

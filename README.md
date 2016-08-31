@@ -35,7 +35,7 @@ npm install
 To run the server in debugging mode:
 
 ```bash
-DEBUG=* node index
+DEBUG=* node .
 ```
 
 ### Linting
