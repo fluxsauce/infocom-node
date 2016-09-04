@@ -35,7 +35,7 @@ npm install
 To run the server in debugging mode:
 
 ```bash
-DEBUG=* node .
+DEBUG=* ./node_modules/.bin/nodemon .
 ```
 
 ### Linting

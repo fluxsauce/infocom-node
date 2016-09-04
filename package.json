@@ -4,15 +4,19 @@
   "description": "Infocom Game Information Server",
   "main": "index.js",
   "dependencies": {
+    "bluebird": "^3.4.5",
     "csv-parse": "^1.1.7",
     "debug": "^2.2.0",
     "lodash": "^4.15.0",
-    "restify": "^4.1.1"
+    "restify": "^4.1.1",
+    "sequelize": "^3.24.1",
+    "sqlite3": "^3.1.4"
   },
   "devDependencies": {
     "eslint": "^3.4.0",
     "eslint-config-airbnb-base": "^5.0.3",
-    "eslint-plugin-import": "^1.14.0"
+    "eslint-plugin-import": "^1.14.0",
+    "nodemon": "^1.10.2"
   },
   "scripts": {
     "eslint": "eslint .",
