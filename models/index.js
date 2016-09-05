@@ -26,7 +26,7 @@ db.Genre = sequelize.define('Genre', {
 });
 
 // Parse out only Genres.
-const genres = array.uniq(gamesRaw.map(({ genre }) => genre));
+const genres = array.uniq(gamesRaw.map((currentValue) => currentValue.genre));
 debug(genres);
 
 db.Genre.sync({ force: true }).then(() => genres.map(name => db.Genre.create({ name })));
