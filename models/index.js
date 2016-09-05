@@ -32,6 +32,25 @@ debug(genres);
 db.Genre.sync({ force: true }).then(() => genres.map(name => db.Genre.create({ name })));
 debug(db.Genre);
 
+db.Difficulty = sequelize.define('difficulty', {
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+});
+
+// Parse out only Difficulties.
+const difficulties = array.uniq(gamesRaw.map(
+  (currentValue) => (currentValue.difficulty ? currentValue.difficulty : 'None')));
+
+db.Difficulty.sync({ force: true })
+  .then(() => difficulties.map(name => db.Difficulty.create({ name })));
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
