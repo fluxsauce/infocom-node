@@ -8,8 +8,9 @@ Infocom games released between 1980 and 1989.
 * http://localhost:8080/difficulties - list all available genres.
 * http://localhost:8080/difficulties/4 - return metadata about Introductory.
 * http://localhost:8080/genres - list all available genres.
-* http://localhost:8080/genres/14 - return metadata about Horror.
+* http://localhost:8080/genres/9 - return metadata about Horror.
 * http://localhost:8080/games - list all available games.
+* http://localhost:8080/games?limit=5 - list first 5 available games.
 * http://localhost:8080/games/26 - return metadata about Planetfall.
 * http://localhost:8080/games/fail - return an error.
 
