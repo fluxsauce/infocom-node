@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       associate: (models) => {
         Game.belongsToMany(models.genre, { through: models.game_genre });
         Game.belongsToMany(models.difficulty, { through: models.game_difficulty });
+        Game.belongsToMany(models.author, { through: models.game_author });
       },
     },
   });
