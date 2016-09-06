@@ -1,4 +1,4 @@
 {
   "verbose": true,
-  "ignore": ["*.md", "LICENSE"]
+  "ignore": ["*.md", "LICENSE", "database.sqlite3"]
 }

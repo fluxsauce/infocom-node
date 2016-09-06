@@ -10,21 +10,21 @@ models.sequelize.sync({ force: true }).then(() => {
   const difficulties = array.uniq(gamesRaw.map(
     (currentValue) => (currentValue.difficulty ? currentValue.difficulty : 'None')));
 
-  difficulties.map(name => models.Difficulty.create({ name }));
+  difficulties.map(name => models.difficulty.create({ name }));
 
   // Parse out only Genres.
   const genres = array.uniq(gamesRaw.map((currentValue) => currentValue.genre));
-  genres.map(name => models.Genre.create({ name }));
+  genres.map(name => models.genre.create({ name }));
 
   gamesRaw.map((currentValue) => {
-    const game = models.Game.build({
+    const game = models.game.build({
       name: currentValue.title,
       year: currentValue.year,
       description: currentValue.description,
     });
 
     const genreName = currentValue.genre;
-    models.Genre.findAll({
+    models.genre.findAll({
       where: {
         name: genreName,
       },
@@ -33,7 +33,7 @@ models.sequelize.sync({ force: true }).then(() => {
     });
 
     const difficultyName = currentValue.difficulty;
-    models.Difficulty.findAll({
+    models.difficulty.findAll({
       where: {
         name: difficultyName !== '' ? difficultyName : 'None',
       },

@@ -2,6 +2,7 @@
 
 const Sequelize = require('sequelize');
 const path = require('path');
+const fs = require('fs');
 
 const db = {};
 
@@ -10,58 +11,19 @@ const sequelize = new Sequelize('database', 'username', 'password', {
   storage: path.join(__dirname, '../database.sqlite3'),
 });
 
-// Genre.
-db.Genre = sequelize.define('genre', {
-  id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    primaryKey: true,
-  },
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
+fs
+  .readdirSync(__dirname)
+  .filter((file) => file.indexOf('.') !== 0 && file !== 'index.js')
+  .forEach((file) => {
+    const model = sequelize.import(path.join(__dirname, file));
+    db[model.name] = model;
+  });
+
+Object.keys(db).forEach((modelName) => {
+  if ('associate' in db[modelName]) {
+    db[modelName].associate(db);
+  }
 });
-
-// Difficulty.
-db.Difficulty = sequelize.define('difficulty', {
-  id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    primaryKey: true,
-  },
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-});
-
-// Game.
-db.Game = sequelize.define('game', {
-  id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    primaryKey: true,
-  },
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  year: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-});
-
-// Games have Genres.
-db.GameGenre = sequelize.define('game_genre');
-db.Game.belongsToMany(db.Genre, { through: db.GameGenre });
-db.Genre.belongsToMany(db.Game, { through: db.GameGenre });
-
-// Games have Difficulties.
-db.GameDifficulty = sequelize.define('game_difficulty');
-db.Game.belongsToMany(db.Difficulty, { through: db.GameDifficulty });
-db.Difficulty.belongsToMany(db.Game, { through: db.GameDifficulty });
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
